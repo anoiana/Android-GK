@@ -1,14 +1,14 @@
 plugins {
     alias(libs.plugins.android.application)
+    id("com.google.gms.google-services")
 }
-
 android {
-    namespace = "com.example.login"
+    namespace = "com.example.studentinformationmanagement"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.example.login"
-        minSdk = 26
+        applicationId = "com.example.studentinformationmanagement"
+        minSdk = 30
         targetSdk = 34
         versionCode = 1
         versionName = "1.0"
@@ -30,13 +30,14 @@ android {
         targetCompatibility = JavaVersion.VERSION_1_8
     }
 }
-
 dependencies {
-
+    implementation(platform("com.google.firebase:firebase-bom:33.5.1"))
+    implementation("com.google.firebase:firebase-analytics")
     implementation(libs.appcompat)
     implementation(libs.material)
     implementation(libs.activity)
     implementation(libs.constraintlayout)
+    implementation(libs.firebase.auth)
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)
